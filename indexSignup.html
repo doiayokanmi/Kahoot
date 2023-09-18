@@ -59,7 +59,7 @@
         </nav>
         <div class="container">
             <h4 class="text-center py-2">Create an account</h4>
-            <div class="col-sm-4 shadow-lg mx-auto bg-wheat" style="height: 90%;">
+            <div class="col-sm-4 shadow-lg mx-auto bg-wheat" style="height: 95%;">
                 <img src="khlode1-removebg-preview.png" alt="" style="width: 100px;margin-left: 150px;">
                 <h5 class="text-center text-dark py-4">Sign up with your email</h5>
                 <form>
@@ -76,73 +76,64 @@
                         </div>
                         <div class="mb-2">
                             <label for="password" class="form-label">Password</label>
-                            <input type="email" class="form-control w-100 border border-secondary" id="password"
+                            <input type="password" class="form-control w-100 border border-secondary" id="password"
                                 aria-describedby="emailHelp">
                         </div>
                         <div class="mb-2">
                             <label for="c_password" class="form-label">Confirm password</label>
-                            <input type="password" class="form-control w-100 border border-secondary" id="exampleInputPassword1"
+                            <input type="password" class="form-control w-100 border border-secondary" id="c_password"
                              aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        <!-- <div class="mb-2 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                        </div> -->
-                        <button class="btn btn-secondary w-100" onclick="signup(event)">Sign up</button>
-                        <div class="mb-2 form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label text-center" for="exampleCheck1">
-                                <small class="text-secondary f-5">I wish to receive information, offers, recommendations,<br> and updates from Kahoot!</small></label>
-                        </div>
+                        <button onclick="signup(event)"class="btn btn-secondary w-100" >Sign up</button>
                     </div>
                 </form>
                 <div class="my-2 mx-4">
                     <button class="btn w-100 rounded border border-dark">Continue with Google</button><br><br>
                     <button class="btn w-100 rounded border border-dark">Continue with Microsoft</button><br><br>
-                    <button class="btn w-100 rounded border border-dark">Continue with Apple</button><br><br>
-                    <button class="btn w-100 rounded border border-dark">Continue with Clever</button>
-                    <p class="text-center">Already have an account? Log in</p>
+                    <button class="btn w-100 rounded border border-dark">Continue with Apple</button>
+                    <p class="text-center my-2">Already have an account? Log in</p>
                     </div>
             </div>
         </div>
         <div class="text-center">
-        <p>By signing up, you accept our Terms and Conditions. Please <br> read our Privacy Policy and Children’s Privacy Policy.</p>
-        <p>I understand that I can withdraw my consent at any time and <br> the withdrawal will not affect the lawfulness of the consent before its withdrawal, as described in the Kahoot! Privacy Policy.</p>
+        <p style="font-size: 10px;">By signing up, you accept our Terms and Conditions. Please <br> read our Privacy Policy and Children’s Privacy Policy.</p>
+        <p style="font-size: 10px;">I understand that I can withdraw my consent at any time and <br> the withdrawal will not affect the lawfulness of the consent before <br> its withdrawal, as described in the Kahoot! Privacy Policy.</p>
         </div>
 
     </main>
 
 </body>
     <script>
-        let user = document.getElementById("username");
+        let username = document.getElementById("username");
         let email = document.getElementById("email");
         let password = document.getElementById("password");
         let c_password = document.getElementById("c_password");
-        let alluser = JSON.parse(localStorage.getItem("alluser")) || [];
+        let allUser = JSON.parse(localStorage.getItem("users")) || [];
 
-        console.log(alluser);
+        console.log(allUser);
         function signup(ev) {
-            ev.preventDefault();
+            ev.preventDefault()
             let userdata = {
-               user: username.value,
+               username: username.value,
                email: email.value,
                password: password.value,
             }
             console.log(userdata)
           
-            if(username.value == " " || email.value == " " || password.value ==" "){
+            if(username.value == "" || email.value == "" || password.value ==""){
                 alert("Input cannot be empty")
         }else if(password.value !== c_password.value ){
             alert("password doesn't match")
         }else {
-            alluser.push(userdata)
+            allUser.push(userdata)
 
-            console.log(alluser)
+            console.log(allUser)
         alert("Signup Successful")
-        localStorage.setItem("users", JSON.stringify(allUser))
-        window.location.href="indexLog.html"
+       localStorage.setItem("users", JSON.stringify(allUser))
+        window.location.href="indexLogin.html"
         }
+        
     }
     </script>
 </html>

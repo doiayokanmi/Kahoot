@@ -59,37 +59,35 @@
             <button><img src="edu5.svg" alt="">En</button>
         </nav>
         <div class="container">
-            <div class="col-sm-4 shadow-lg mx-auto bg-wheat py-0 mt-1" style="height: 100vh;">
+            <div class="col-sm-4 shadow-lg mx-auto bg-wheat py-0 mt-1" style="height: 90%;">
                 <img src="khlode1-removebg-preview.png" alt="" style="width: 100px;margin-left: 150px;">
                 <h5 class="text-center text-dark py-4 font-weight-bold">Log in</h5>
                 <form>
-                    <div class="my-2 mx-3">
-                        <div class="mb-3">
+                    <div class="my-2 mx-2">
+                        <div class="mb-2">
                             <label for="exampleInputEmail1" class="form-label">Username or email</label>
-                            <input type="email" class="form-control w-100 border border-secondary" id="exampleInputEmail1"
+                            <input type="email" class="form-control w-100 border border-secondary" id="email"
                                 aria-describedby="emailHelp">
                             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                         </div>
-                        <div class="mb-3">
-                            <label for="exampleInputPassword1" class="form-label">Password</label>
-                            <input type="password" class="form-control w-100 border border-secondary" id="exampleInputPassword1">
+                        <div class="mb-2">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control w-100 border border-secondary" id="password">
                         </div>
                         <p>Forgot password?<span><a href="#"> Reset your password</a></span></p>
-                        <button class="btn btn-secondary w-100" onclick="login(event)">Log in</button>
+                        <button class="btn btn-secondary w-100 my-3 " onclick="login(event)">Log in</button>
                 </form>
-            </div>
-                <hr>
-            <div class="my-2 mx-3">
-            <button class="btn w-100 rounded border border-dark">Continue with Google</button><br><br>
-            <button class="btn w-100 rounded border border-dark">Continue with Microsoft</button><br><br>
-            <button class="btn w-100 rounded border border-dark">Continue with Apple</button><br><br>
-            <button class="btn w-100 rounded border border-dark">Continue with Clever</button>
-            <p class="text-center my-3"> Don't have an account?<a href="#"> Sign up</a></p>
-            </div>
+                <div class="my-3 mx-2">
+                    <button class="btn w-100 rounded border border-dark">Continue with Google</button><br><br>
+                    <button class="btn w-100 rounded border border-dark">Continue with Microsoft</button><br><br>
+                    <button class="btn w-100 rounded border border-dark">Continue with Apple</button><br><br>
+                    <p class="text-center my-3"> Don't have an account?<a href="#">Create account</a></p>
+                    </div>
+            </div> 
         </div>
         <div class="text-center">
-        <p class="font-">By signing up, you accept our Terms and Conditions. Please <br> read our Privacy Policy and Children’s Privacy Policy.</p>
-        <p>I understand that I can withdraw my consent <br> at any time and <br> the withdrawal will not affect the lawfulness of the consent before its withdrawal, as described in the Kahoot! Privacy Policy.</p>
+        <p style="font-size: 10px;">By signing up, you accept our Terms and Conditions. Please <br> read our Privacy Policy and Children’s Privacy Policy.</p>
+        <p style="font-size: 10px;">I understand that I can withdraw my consent <br> at any time and <br> the withdrawal will not affect the lawfulness of the consent before <br> its withdrawal, as described in the Kahoot! Privacy Policy.</p>
         </div>
 
     </main>
@@ -98,17 +96,25 @@
 </body>
 <script>
 
-    let email = document.getElementById("exampleInputEmail1")
-    let password = document.getElementById("exampleInputPassword1")
+    let email = document.getElementById("email")
+    let password = document.getElementById("password")
+    let allUser = JSON.parse(localStorage.getItem("users"))
+    console.log(users);
 
     function login() {
-    ev.preventDefault();
-    if(exampleInputEmail1.value == "" || exampleInputPassword1.value == "" ){
+       ev.preventDefault()
+       let found = users.find((f)=> f.email == email.value && f.password == password.value)
+       console.log(found);
+
+    if(email.value == "" || password.value == "" ){
         alert(" Input Field cannot empyt")
     }else if(found == undefined){
         alert("user not found")
+
     }else
-    alert("Login Successfull")
+    alert("Login Successful")
+      localStorage.setItem("ccurent_user", JSON.stringify(found))
+     window.location.href="dashboard.html"
 }
 </script>
 </html>
