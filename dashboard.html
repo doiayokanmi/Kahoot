@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,151 +8,70 @@
     <!-- <html>Dashboard - Page</html> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dashboard.css">
 
-    <style>
-            * {
-                margin: 0;
-                padding: 0;
-            }
-
-            main {
-                    width: 100%;
-                    height: 100vh;
-                    background:#f2f2f2;
-    
-                }
-        
-            nav {
-                    width: 100%;
-                    height: 60px;
-                    background: white;
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    padding: 5px 12px;
-                    box-shadow: 2px 0px 2px;
-                 }
-
-            nav .klog{
-                    width: 120px;
-                    cursor: pointer;
-                 }
-
-            .btn1{
-                width: 120px;
-                height: 40px;
-                border: none;
-                cursor: pointer;
-                border-radius: 8px;
-             }
-             .btn1 span{
-                font-size: 15px;
-                color: #028282;
-                font-weight: 500;
-                padding: 10px;
-                background: white;
-             }
-             .bi-star{
-                font-size: 18px;
-                padding: 5px;
-                background: #028282;
-                border-radius: 50%; 
-             }
-             .btt{
-                width: 120px;
-                height: 40px;
-                font-size: 15px;
-                font-family: 600;
-                color: white;
-                background: #0000ee;
-                border: none;
-                border-radius: 5px;
-                cursor: pointer;
-             }
-             
-             .netwhat img{
-                width: 40px;
-                background: #028282;
-                border-radius: 50%;
-                border: none;
-                cursor: pointer;
-                height: 40px;
-             }
-             .belltone img{
-                width: 30px;
-            
-             }
-             .belltone{
-                width: 40px;
-                height: 40px;
-                border: none;
-                border-radius: 50%;
-                cursor: pointer;
-                background: white;
-             } 
-             
-              .left-container{
-                width: 220px;
-                height: 100vh;
-                position: fixed;
-                background: white;
-                left: 0;
-                box-shadow: 0px 0px 2px;
-                line-height: 45px;
-              }
-              .left-container img{
-                width: 35px;
-              }
-              .left-container ul li{
-              list-style: none;
-
-              }
-              .left-container ul li a{
-                text-decoration: none;
-                font-size: 15px;
-                color: #6e6e6e;
-                cursor: pointer;
-              }
-              .centerside{
-                display: flex;
-                justify-content: space-around;
-              }
-              
-    </style>
 
 </head>
+
 <body>
     <main>
-        <nav>
-            <img class="klog" src="khlode1-removebg-preview.png" alt="">
-            <div class="sidebar">
-                <button class="btn1"><i class="bi bi-star"></i><span>Upgrade</span></button>
-                <button class="btt">Create</button>
-                <span class="netwhat"><img src="stud2.svg" alt=""></span>
-                <button class="belltone"><img src="bell.svg" alt=""></button>
+        <div class="nav">
+            <img src="khlode1-removebg-preview.png" alt="">
+            <div class="nav-left">
+                <ul>
+                    <li><a href="#"><span><i class="bi bi-star-fill"></i>Upgrade</span></a></li>
+                    <li><button>Create</button></li>
+                    <li><a href="#"><i class="bi bi-person-fill"></i></a></li>
+                    <li><a href="#"><i class="bi bi-bell-fill"></i></a></li>
+                </ul>
+
             </div>
-        </nav>
-        <div class="left-container">
-            <ul>
-                <li><img src="home.svg" alt=""><a href="#">Home</a></li>
-                <li><img src="discover.svg" alt=""><a href="#">Discover</a></li>
-                <li><img src="report.svg" alt=""><a href="#">Report</a></li>
-                <li><img src="group.svg" alt=""><a href="#">Groups</a></li>
-                <li><img src="marketplace2.svg" alt=""><a href="#">Marketplace</a></li>
-            </ul>
-            
         </div>
-        <div class="centerside">
-            <div class="">
-                <button>Create a new Kahoot</button>
+
+        <div class="container">
+            <div class="left-sidebar">
+                <div class="side-menu">
+                    <a href="#"><img src="home.svg" alt="">Home</a>
+                    <a href="#"><img src="discover.svg" alt="">Discover</a>
+                    <a href="#"><img src="library.svg" alt="">Librarys</a>
+                    <a href="#"><img src="group.svg" alt="">Groups</a>
+                    <a href="#"><img src="marketplace2.svg" alt="">Marketplace</a>
+                </div>
+                <div class="side-down">
+                    <a href="#"><img src="what's new.svg" alt="">What's new</a>
+                    <a href="#"><img src="other app.svg" alt="">Other App</a>
+                    <a href="#"><img src="help.svg" alt="">help</a>
+                </div>
             </div>
-            <div>
-                <button>public use</button>
+
+            <div class="center-content">
+                <div class="container">
+                    <div class="box-1">
+                        <h2 class="px-4" style="font-size: 40px;">Let's get started <span style="font-size: 20px;">Practice and host our top choices to boost student engagement</span></h2>
+                        <div class="box-info">
+                            <div class="detail">
+                                <div class="man">
+                                    <img src="cross.svg" alt="">
+
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+                    
+                </div>
             </div>
-            
 
         </div>
+        </div>
+        </div>
+        </div>
     </main>
-    
+
 </body>
+<script>
+
+</script>
+
 </html>
