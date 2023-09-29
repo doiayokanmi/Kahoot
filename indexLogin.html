@@ -99,22 +99,26 @@
     let email = document.getElementById("email")
     let password = document.getElementById("password")
     let allUser = JSON.parse(localStorage.getItem("users"))
-    console.log(users);
+    console.log(allUser);
 
-    function login() {
-       ev.preventDefault()
-       let found = users.find((f)=> f.email == email.value && f.password == password.value)
-       console.log(found);
+    function login(ev) {
+    let found; // Declare or initialize 'found' here
 
-    if(email.value == "" || password.value == "" ){
-        alert(" Input Field cannot empyt")
-    }else if(found == undefined){
-        alert("user not found")
+    if (email.value == "" || password.value == "") {
+        alert("Input Field cannot be empty");
+    } else {
+        found = allUser.find((f) => f.email == email.value && f.password == password.value);
+        if (found == undefined) {
+            alert("User not found");
+        } else {
+            alert("Login Successful");
+            localStorage.setItem("current_user", JSON.stringify(found));
+            window.location.href = "dashboard.html";
+        }
+    }
 
-    }else
-    alert("Login Successful")
-      localStorage.setItem("ccurent_user", JSON.stringify(found))
-     window.location.href="dashboard.html"
+    ev.preventDefault();
 }
+
 </script>
 </html>
