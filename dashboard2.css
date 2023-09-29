@@ -282,7 +282,7 @@ p a{
 }
 .style-answer{
     margin: auto;
-    margin-top: 80px;
+    margin-top: 50px;
 }
 .style-answer input{
     width: 45%;
@@ -292,5 +292,8 @@ p a{
     border: none;
     outline: none;
     cursor: pointer;
+}
+.add-more{
+   margin: 50px;
 }
 

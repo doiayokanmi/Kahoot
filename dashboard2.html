@@ -36,21 +36,21 @@
 
         <div class="container">
             <div class="left-sidebar">
-                    <div class="quiz-content">
-                        <b>What is always co...</b>
-                        <div class="box-quiz">
-                            <span>2</span>
-                            <img src="download 3.svg" alt="">
-                        </div>
+                <div class="quiz-content">
+                    <b>What is always co...</b>
+                    <div class="box-quiz">
+                        <span>2</span>
+                        <img src="download 3.svg" alt="">
                     </div>
-                    <div class="down-content">
-                        <button class="btn">Add question</button>
-                        <button class="bna"> Add slide</button>
-                    </div>
+                </div>
+                <div class="down-content">
+                    <button class="btn">Add question</button>
+                    <button class="bna"> Add slide</button>
+                </div>
             </div>
             <div class="center-content">
                 <div class="mx-auto container">
-                    <input type="text" placeholder="Start typing your question" id="input9"
+                    <input type="text" placeholder="Start typing your question" id="question"
                         class=" form-control btn-outline-dark text-center"
                         style="width: 100%; height: 60px; border: 1px solid black; box-shadow: 0px 1px; font-size: 20px; ">
                 </div>
@@ -59,27 +59,73 @@
                         <button><img src="plus2.svg" alt=""></button>
                         <p>Find and insert media</p>
                     </div>
-                   <p><a href="#">or drop an image here to upload</a></p>
+                    <p><a href="#">or drop an image here to upload</a></p>
                 </div>
                 <div class="style-answer">
-                    <input type="text" placeholder="Add answer 1">
-                    <input type="text" placeholder="Add answer 2"><br>
-                    <input type="text" placeholder="Add answer 3 optional">
-                    <input type="text" placeholder="Add answer 1">
+                    <input type="text" placeholder="Add answer 1" id="answer1">
+                    <input type="text" placeholder="Add answer 2" id="answer2"><br>
+                    <input type="text" placeholder="Add answer 3 optional" id="answer3">
+                    <input type="text" placeholder="Add answer 1" id="answer4">
                 </div>
                 <div class="add-more">
-                    <a href="#"></a>
+                    <button onclick="saveQuestion()">Save Question</button>
+                    <button>Remove Question</button>
                 </div>
-                
-
-           </div>
-
-     </div>
-   </div>
- </main>
-
-
-
+            </div>
+        </div>
+        </div>
+    </main>
 </body>
+
+<script>
+    
+     // Initialize the question and answer array
+     let index =[0];
+     let allQuestion = [];
+
+     // Function to save the question and answers to localStorage
+     function saveQuestion() {
+
+    let inputQuest = document.getElementById("question").value;
+    let inputAns1 = document.getElementById("answer1").value;
+    let inputAns2 = document.getElementById("answer2").value;
+    let inputAns3 = document.getElementById("answer3").value;
+    let inputAns4 = document.getElementById("answer4").value;
+
+    // Create an object to represent the question and answers
+    let quest = {
+            question: question.value,
+            inputAnswe1: answer1.value,
+            inputAns2: answer2.value,
+            inputAns3: answer3.value,
+            inputAns4: answer4.value,
+            // answers: [answer1Input, answer2Input, answer3Input, answer4Input]
+  }
+
+  // Push the object to the array
+            allQuestion.push(quest);
+
+  // Save the array to localStorage
+      localStorage.setItem("qaArray", JSON.stringify(allQuestion));
+
+      
+  // Clear the input fields
+        document.getElementById("question").value = "";
+        document.getElementById("answer1").value = "";
+        document.getElementById("answer2").value = "";
+        document.getElementById("answer3").value = "";
+        document.getElementById("answer4").value = "";
+
+  // Log the updated array
+         console.log("Updated allQuestion:", allQuestion);
+}
+
+// Event listener for the "Save Question" button
+document.getElementById("saveQuestion").addEventListener("click", saveQuestion);
+
+    
+
+
+</script>
 
 </html>
