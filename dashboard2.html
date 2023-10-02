@@ -80,26 +80,18 @@
 <script>
     
      // Initialize the question and answer array
-     let index =[0];
-     let allQuestion = [];
+    
+     
+     let allQuestion = JSON.parse(localStorage.getItem('qaArray')) || [];
 
      // Function to save the question and answers to localStorage
      function saveQuestion() {
 
-    let inputQuest = document.getElementById("question").value;
-    let inputAns1 = document.getElementById("answer1").value;
-    let inputAns2 = document.getElementById("answer2").value;
-    let inputAns3 = document.getElementById("answer3").value;
-    let inputAns4 = document.getElementById("answer4").value;
 
     // Create an object to represent the question and answers
     let quest = {
             question: question.value,
-            inputAnswe1: answer1.value,
-            inputAns2: answer2.value,
-            inputAns3: answer3.value,
-            inputAns4: answer4.value,
-            // answers: [answer1Input, answer2Input, answer3Input, answer4Input]
+            answers: [answer1.value, answer2.value, answer3.value, answer3.value]
   }
 
   // Push the object to the array
@@ -116,8 +108,6 @@
         document.getElementById("answer3").value = "";
         document.getElementById("answer4").value = "";
 
-  // Log the updated array
-         console.log("Updated allQuestion:", allQuestion);
 }
 
 // Event listener for the "Save Question" button
